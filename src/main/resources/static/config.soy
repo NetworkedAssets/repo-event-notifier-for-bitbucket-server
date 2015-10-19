@@ -1,4 +1,4 @@
-{namespace stash.config.webhooks.formContents}
+{namespace bitbucket.config.webhooks.formContents}
 
 /**
  * @param config
@@ -10,9 +10,9 @@
         {param value: $config['url'] /}
         {param isRequired : true /}
         {param labelContent}
-            {stash_i18n('stash.web.hook.config.url.label', 'URL')}
+            {bitbucket_i18n('bitbucket.web.hook.config.url.label', 'URL')}
         {/param}
-        {param descriptionText: stash_i18n('stash.web.hook.config.url.description', 'A URL to be notified') /}
+        {param descriptionText: bitbucket_i18n('bitbucket.web.hook.config.url.description', 'A URL to be notified') /}
         {param extraClasses: 'long' /}
         {param errorTexts: $errors ? $errors['url'] : null /}
     {/call}
@@ -21,9 +21,9 @@
         {param isRequired : true /}
         {param value: $config['timeout'] ? $config['timeout'] : '30000'  /}
         {param labelContent}
-            {stash_i18n('stash.web.hook.config.timeout.label', 'Connection timeout')}
+            {bitbucket_i18n('bitbucket.web.hook.config.timeout.label', 'Connection timeout')}
         {/param}
-        {param descriptionText: stash_i18n('stash.web.hook.config.timeout.description', 'Connection time out.') /}
+        {param descriptionText: bitbucket_i18n('stash.web.hook.config.timeout.description', 'Connection time out.') /}
         {param extraClasses: 'long' /}
         {param errorTexts: $errors ? $errors['timeout'] : null /}
     {/call}

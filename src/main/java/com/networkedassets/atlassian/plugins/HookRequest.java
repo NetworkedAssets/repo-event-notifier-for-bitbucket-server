@@ -48,12 +48,13 @@ public class HookRequest {
 		return refChange;
 	}
 
+	
 	public Map<String, Object> getContent() {
 		return ImmutableMap.<String, Object> builder()
 				.put("sourceUrl", getSourceUrl().toString())
 				.put("projectKey", getRepository().getProject().getKey())
 				.put("repositorySlug", getRepository().getSlug())
-				.put("branchId", getRefChange().getRefId()).build();
+				.put("branchId", getRefChange().getRef()).build();
 	}
 
 	@Nonnull

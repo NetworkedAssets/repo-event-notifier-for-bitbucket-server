@@ -13,19 +13,17 @@
 		interface="com.atlassian.stash.repository.RepositoryService" />
 	<component-import key="com.atlassian.stash.i18n.I18nService"
 		interface="com.atlassian.stash.i18n.I18nService" />
-	<component-import key="applicationProperties"
-		interface="com.atlassian.stash.server.ApplicationPropertiesService" />
-
+	
 	<!-- components configuration -->
-	<component key="com.networkedassets.atlasian.plugins.HookRequestSender"
-		class="com.networkedassets.atlasian.plugins.HookRequestSender" />
+	<component key="com.networkedassets.atlassian.plugins.HookRequestSender"
+		class="com.networkedassets.atlassian.plugins.HookRequestSender" />
 
 	<repository-hook key="postReceiveHookListener" name="Endpoint Push Notyfication"
-		class="com.networkedassets.atlasian.plugins.HookPostReceiveListener">
+		class="com.networkedassets.atlassian.plugins.HookPostReceiveListener">
 		<description>Sends a notice to the configured endpoint whenever
 			someone pushes to the repository</description>
 		<config-form key="webHook-config" name="WebHook Config">
-			<view>stash.config.webhooks.formContents</view>
+			<view>bitbucket.config.webhooks.formContents</view>
 			<directory location="/static/" />
 		</config-form>
 	</repository-hook>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.atlassian.bitbucket.server</groupId>
-        <artifactId>bitbucket-parent</artifactId>
-        <version>4.0.0-rc12</version>
-    </parent>
+	<parent>
+		<groupId>com.atlassian.bitbucket.server</groupId>
+		<artifactId>bitbucket-parent</artifactId>
+		<version>4.0.0-rc12</version>
+	</parent>
 
-    <groupId>com.networkedassets.atlassian.plugins</groupId>
+	<groupId>com.networkedassets.atlassian.plugins</groupId>
 	<artifactId>bitbucket-postReceive-hook-plugin</artifactId>
 	<version>1.0</version>
 
@@ -22,61 +23,56 @@
 	<description>Repository hook plugin for notifying an external URL of changes to a repository.</description>
 	<packaging>atlassian-plugin</packaging>
 
-    
-    <dependencies>
-        <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-util</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-spi</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-rest-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-rest-model</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.atlassian.bitbucket.server</groupId>
-            <artifactId>bitbucket-it-common</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <!-- WIRED TEST RUNNER DEPENDENCIES -->
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
-            <version>${plugin.testrunner.version}</version>
-            <scope>test</scope>
-        </dependency>
-       <dependency>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.atlassian.sal</groupId>
+			<artifactId>sal-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-util</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-spi</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-rest-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-rest-model</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- WIRED TEST RUNNER DEPENDENCIES -->
+		<dependency>
+			<groupId>com.atlassian.plugins</groupId>
+			<artifactId>atlassian-plugins-osgi-testrunner</artifactId>
+			<version>${plugin.testrunner.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
@@ -86,48 +82,52 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		 <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.2-atlassian-1</version>
-        </dependency>
-	
-        
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.atlassian.maven.plugins</groupId>
-                <artifactId>bitbucket-maven-plugin</artifactId>
-                <version>${amps.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <products>
-                        <product>
-                            <id>bitbucket</id>
-                            <instanceId>bitbucket</instanceId>
-                            <version>${bitbucket.version}</version>
-                            <dataVersion>${bitbucket.data.version}</dataVersion>
-                        </product>
-                    </products>
-                </configuration>
-            </plugin>
-            <plugin>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2-atlassian-1</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>bitbucket-maven-plugin</artifactId>
+				<version>${amps.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<products>
+						<product>
+							<id>bitbucket</id>
+							<instanceId>bitbucket</instanceId>
+							<version>${bitbucket.version}</version>
+							<dataVersion>${bitbucket.data.version}</dataVersion>
+						</product>
+					</products>
+				</configuration>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<version>3.3</version>
+					<fork>true</fork>
+					<meminitial>1024m</meminitial>
+					<maxmem>2024m</maxmem>
 				</configuration>
 			</plugin>
-        </plugins>
-    </build>
+		</plugins>
+	</build>
 
-    <properties>
-        <bitbucket.version>4.0.0-rc12</bitbucket.version>
-        <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
-        <amps.version>6.1.0</amps.version>
-        <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
-    </properties>
+	<properties>
+		<bitbucket.version>4.0.0-rc12</bitbucket.version>
+		<bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
+		<amps.version>6.1.0</amps.version>
+		<plugin.testrunner.version>1.2.3</plugin.testrunner.version>
+	</properties>
 
 </project>
