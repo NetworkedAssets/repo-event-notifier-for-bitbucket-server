@@ -1,0 +1,30 @@
+{namespace stash.config.webhooks.formContents}
+
+/**
+ * @param config
+ * @param? errors
+ */
+{template .formContents}
+    {call aui.form.textField}
+        {param id: 'url' /}
+        {param value: $config['url'] /}
+        {param isRequired : true /}
+        {param labelContent}
+            {stash_i18n('stash.web.hook.config.url.label', 'URL')}
+        {/param}
+        {param descriptionText: stash_i18n('stash.web.hook.config.url.description', 'A URL to be notified') /}
+        {param extraClasses: 'long' /}
+        {param errorTexts: $errors ? $errors['url'] : null /}
+    {/call}
+     {call aui.form.textField}
+        {param id: 'timeout' /}
+        {param isRequired : true /}
+        {param value: $config['timeout'] ? $config['timeout'] : '30000'  /}
+        {param labelContent}
+            {stash_i18n('stash.web.hook.config.timeout.label', 'Connection timeout')}
+        {/param}
+        {param descriptionText: stash_i18n('stash.web.hook.config.timeout.description', 'Connection time out.') /}
+        {param extraClasses: 'long' /}
+        {param errorTexts: $errors ? $errors['timeout'] : null /}
+    {/call}
+{/template}

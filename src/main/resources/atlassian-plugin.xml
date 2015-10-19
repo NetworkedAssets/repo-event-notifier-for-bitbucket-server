@@ -1,0 +1,33 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}"
+	name="${project.name}" plugins-version="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}" />
+	</plugin-info>
+
+	<!-- imported components -->
+	<component-import key="com.atlassian.sal.api.net.RequestFactory"
+		interface="com.atlassian.sal.api.net.RequestFactory" />
+	<component-import key="com.atlassian.stash.repository.RepositoryService"
+		interface="com.atlassian.stash.repository.RepositoryService" />
+	<component-import key="com.atlassian.stash.i18n.I18nService"
+		interface="com.atlassian.stash.i18n.I18nService" />
+	<component-import key="applicationProperties"
+		interface="com.atlassian.stash.server.ApplicationPropertiesService" />
+
+	<!-- components configuration -->
+	<component key="com.networkedassets.atlasian.plugins.HookRequestSender"
+		class="com.networkedassets.atlasian.plugins.HookRequestSender" />
+
+	<repository-hook key="postReceiveHookListener" name="Endpoint Push Notyfication"
+		class="com.networkedassets.atlasian.plugins.HookPostReceiveListener">
+		<description>Sends a notice to the configured endpoint whenever
+			someone pushes to the repository</description>
+		<config-form key="webHook-config" name="WebHook Config">
+			<view>stash.config.webhooks.formContents</view>
+			<directory location="/static/" />
+		</config-form>
+	</repository-hook>
+
+</atlassian-plugin>
