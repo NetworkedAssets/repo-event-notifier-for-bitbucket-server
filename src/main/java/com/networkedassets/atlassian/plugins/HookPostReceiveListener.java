@@ -15,8 +15,7 @@ import com.atlassian.bitbucket.setting.Settings;
 import com.atlassian.bitbucket.setting.SettingsValidationErrors;
 import com.google.common.base.Preconditions;
 
-public class HookPostReceiveListener implements AsyncPostReceiveRepositoryHook, RepositorySettingsValidator
-{
+public class HookPostReceiveListener implements AsyncPostReceiveRepositoryHook, RepositorySettingsValidator {
 
 	private static final String CONN_TIMEOUT_KEY = "timeout";
 	private static final String URL_NAME_KEY = "url";
@@ -24,9 +23,9 @@ public class HookPostReceiveListener implements AsyncPostReceiveRepositoryHook, 
 	private final HookRequestSender requestSender;
 	private final ApplicationPropertiesService propertiesService;
 
-	public HookPostReceiveListener(HookRequestSender requestSender,  ApplicationPropertiesService propertiesService) {
+	public HookPostReceiveListener(HookRequestSender requestSender, ApplicationPropertiesService propertiesService) {
 		this.requestSender = requestSender;
-		this.propertiesService=propertiesService;
+		this.propertiesService = propertiesService;
 	}
 
 	@Override
@@ -35,11 +34,13 @@ public class HookPostReceiveListener implements AsyncPostReceiveRepositoryHook, 
 		Preconditions.checkNotNull(context);
 		Preconditions.checkNotNull(refChanges);
 
-		URI sourceUrl=propertiesService.getBaseUrl();
-		refChanges.stream()
-				.forEach(change -> this.requestSender.execute(new HookRequest(sourceUrl,context.getRepository(), change,
-						URI.create(context.getSettings().getString(URL_NAME_KEY)),
-						context.getSettings().getInt(CONN_TIMEOUT_KEY))));
+		URI sourceUrl = propertiesService.getBaseUrl();
+
+		for (RefChange change : refChanges) {
+			this.requestSender.execute(new HookRequest(sourceUrl, context.getRepository(), change,
+					URI.create(context.getSettings().getString(URL_NAME_KEY)),
+					context.getSettings().getInt(CONN_TIMEOUT_KEY)));
+		}
 	}
 
 	@Override

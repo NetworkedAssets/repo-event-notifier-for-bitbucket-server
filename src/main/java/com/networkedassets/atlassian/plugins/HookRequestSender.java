@@ -1,5 +1,8 @@
 package com.networkedassets.atlassian.plugins;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.atlassian.sal.api.net.Request;
 import com.atlassian.sal.api.net.RequestFactory;
 import com.atlassian.sal.api.net.Response;
@@ -7,11 +10,7 @@ import com.atlassian.sal.api.net.ResponseException;
 import com.atlassian.sal.api.net.ResponseHandler;
 import com.atlassian.sal.api.net.ResponseProtocolException;
 import com.atlassian.sal.api.net.ResponseTimeoutException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
-import com.networkedassets.atlassian.plugins.HookRequest;
 
 public class HookRequestSender {
 
@@ -25,8 +24,6 @@ public class HookRequestSender {
 	}
 
 	public void execute(HookRequest hook) {
-		
-		
 
 		Request<?, Response> request = this.requestFactory.createRequest(Request.MethodType.POST,
 				hook.getHookUri().toString());
