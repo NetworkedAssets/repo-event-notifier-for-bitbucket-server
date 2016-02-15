@@ -17,8 +17,8 @@
 	<packaging>atlassian-plugin</packaging>
 
 	<scm>
-		<connection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</connection>
-		<developerConnection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</developerConnection>
+		<connection>scm:git:https://stash.networkedassets.net/stash/scm/NAATLAS/bitbucket-postreceive-hook-plugin.git</connection>
+		<developerConnection>scm:git:https://stash.networkedassets.net/stash/scm/NAATLAS/bitbucket-postreceive-hook-plugin.git</developerConnection>
 		<tag>bitbucket-postReceive-hook-plugin-1.0</tag>
 		<url>https://stash.networkedassets.net/stash/projects/NAATLAS/repos/bitbucket-postreceive-hook-plugin</url>
 	</scm>
