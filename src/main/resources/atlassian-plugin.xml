@@ -17,4 +17,7 @@
 		</config-form>
 	</repository-hook>
 
+	<param name="atlassian-licensing-enabled">true</param>
+	<component-import key="pluginLicenseManager" interface="com.atlassian.upm.api.license.PluginLicenseManager"/>
+
 </atlassian-plugin>

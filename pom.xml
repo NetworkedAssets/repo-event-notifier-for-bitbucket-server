@@ -5,7 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.networkedassets.atlassian.plugins</groupId>
 	<artifactId>bitbucket-postReceive-hook-plugin</artifactId>
-	<version>1.0</version>
+	<!-- version needs to end with '-SNAPSHOT' and changes every mvn release:prepare -->
+	<version>1.0-SNAPSHOT</version>
 
 	<organization>
 		<name>NetworkedAssets GmbH</name>
@@ -16,6 +17,12 @@
 	<description>Repository hook plugin for notifying an external URL of changes to a repository.</description>
 	<packaging>atlassian-plugin</packaging>
 
+	<scm>
+		<connection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</connection>
+		<developerConnection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</developerConnection>
+		<tag>bitbucket-postReceive-hook-plugin-1.0</tag>
+		<url>https://stash.networkedassets.net/stash/projects/NAATLAS/repos/bitbucket-postreceive-hook-plugin</url>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -25,6 +32,19 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- License dependencies -->
+		<dependency>
+			<groupId>com.atlassian.upm</groupId>
+			<artifactId>licensing-api</artifactId>
+			<version>2.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.upm</groupId>
+			<artifactId>upm-api</artifactId>
+			<version>2.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.atlassian.bitbucket.server</groupId>
