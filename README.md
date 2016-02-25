@@ -13,8 +13,10 @@ Format of the JSON that is sent to the transformer looks as follow:
    "branchId":"http://url.tobitbucket.com:port"
 }
 ```
+
 You can read `projectKey` and `repositorySlug` from the repository url:
 ```
 localhost:7990/projects/CAT/repos/catrepo/browse
 ```
+
 Where `CAT` is projectKey and `catrepo` is repositorySlug
