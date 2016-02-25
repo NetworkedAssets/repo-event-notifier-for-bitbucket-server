@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>com.atlassian.bitbucket.server</groupId>
-		<artifactId>bitbucket-parent</artifactId>
-		<version>4.0.0-rc12</version>
-	</parent>
-
 	<groupId>com.networkedassets.atlassian.plugins</groupId>
 	<artifactId>bitbucket-postReceive-hook-plugin</artifactId>
 	<!-- version needs to end with '-SNAPSHOT' and changes every mvn release:prepare -->
-	<version>1.0-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 
 	<organization>
 		<name>NetworkedAssets GmbH</name>
-		<url>http://networkedassets.com/</url>
+		<url>http://networkedassets.com</url>
 	</organization>
 
 	<name>Bitbucket Post-Receive Hook Plugin</name>
@@ -25,17 +17,17 @@
 	<packaging>atlassian-plugin</packaging>
 
 	<scm>
-		<connection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</connection>
-		<developerConnection>scm:git:https://stash.networkedassets.net/stash/scm/naatlas/bitbucket-postreceive-hook-plugin.git</developerConnection>
+		<connection>scm:git:https://stash.networkedassets.net/stash/scm/NAATLAS/bitbucket-postreceive-hook-plugin.git</connection>
+		<developerConnection>scm:git:https://stash.networkedassets.net/stash/scm/NAATLAS/bitbucket-postreceive-hook-plugin.git</developerConnection>
 		<tag>bitbucket-postReceive-hook-plugin-1.0</tag>
 		<url>https://stash.networkedassets.net/stash/projects/NAATLAS/repos/bitbucket-postreceive-hook-plugin</url>
 	</scm>
 
-
 	<dependencies>
 		<dependency>
-			<groupId>com.atlassian.sal</groupId>
-			<artifactId>sal-api</artifactId>
+			<groupId>com.atlassian.bitbucket.server</groupId>
+			<artifactId>bitbucket-util</artifactId>
+			<version>${bitbucket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -55,27 +47,26 @@
 
 		<dependency>
 			<groupId>com.atlassian.bitbucket.server</groupId>
-			<artifactId>bitbucket-util</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.atlassian.bitbucket.server</groupId>
 			<artifactId>bitbucket-api</artifactId>
+			<version>${bitbucket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.atlassian.bitbucket.server</groupId>
 			<artifactId>bitbucket-spi</artifactId>
+			<version>${bitbucket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.atlassian.bitbucket.server</groupId>
 			<artifactId>bitbucket-rest-api</artifactId>
+			<version>${bitbucket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.atlassian.bitbucket.server</groupId>
 			<artifactId>bitbucket-rest-model</artifactId>
+			<version>${bitbucket.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -84,8 +75,34 @@
 			<version>18.0</version>
 		</dependency>
 		<dependency>
+			<groupId>com.mashape.unirest</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpasyncclient</artifactId>
+			<version>4.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.3.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- WIRED TEST RUNNER DEPENDENCIES -->
@@ -98,20 +115,15 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<version>1.7.13</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.2.2-atlassian-1</version>
-		</dependency>
-
 
 	</dependencies>
 	<build>
@@ -137,17 +149,29 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<version>3.3</version>
-					<fork>true</fork>
-					<meminitial>1024m</meminitial>
-					<maxmem>2024m</maxmem>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 
 	<properties>
-		<bitbucket.version>4.0.0-rc12</bitbucket.version>
+		<bitbucket.version>4.0.0</bitbucket.version>
 		<bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
 		<amps.version>6.1.0</amps.version>
 		<plugin.testrunner.version>1.2.3</plugin.testrunner.version>

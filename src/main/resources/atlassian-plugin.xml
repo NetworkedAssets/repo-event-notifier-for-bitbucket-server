@@ -1,34 +1,24 @@
-<atlassian-plugin key="${project.groupId}.${project.artifactId}"
-	name="${project.name}" plugins-version="2">
-	<plugin-info>
-		<description>${project.description}</description>
-		<version>${project.version}</version>
-		<vendor name="${project.organization.name}" url="${project.organization.url}" />
-	</plugin-info>
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+		<param name="atlassian-licensing-enabled">true</param>
+    </plugin-info>
 
-	<!-- imported components -->
-	<component-import key="com.atlassian.sal.api.net.RequestFactory"
-		interface="com.atlassian.sal.api.net.RequestFactory" />
-	<component-import key="com.atlassian.stash.repository.RepositoryService"
-		interface="com.atlassian.stash.repository.RepositoryService" />
-	<component-import key="com.atlassian.stash.i18n.I18nService"
-		interface="com.atlassian.stash.i18n.I18nService" />
-	
-	<!-- components configuration -->
-	<component key="com.networkedassets.atlassian.plugins.HookRequestSender"
-		class="com.networkedassets.atlassian.plugins.HookRequestSender" />
+	<component-import key="com.atlassian.bitbucket.i18n.I18nService" interface="com.atlassian.bitbucket.i18n.I18nService"/>
+	<component key="com.networkedassets.atlassian.plugins.HookRequestSender" class="com.networkedassets.atlassian.plugins.HookRequestSender" />
 
-	<repository-hook key="postReceiveHookListener" name="Endpoint Push Notyfication"
-		class="com.networkedassets.atlassian.plugins.HookPostReceiveListener">
-		<description>Sends a notice to the configured endpoint whenever
-			someone pushes to the repository</description>
-		<config-form key="webHook-config" name="WebHook Config">
-			<view>bitbucket.config.webhooks.formContents</view>
+   <resource type="i18n" name="i18n" location="i18n/bitbucket-hooks"/> 
+	<repository-hook key="postReceiveHookListener"  class="com.networkedassets.atlassian.plugins.HookPostReceiveListener" name="Endpoint Push Notification">
+		<description>Sends a notice to the configured endpoint whenever someone pushes to the repository</description>
+		<config-form key="postReceiveHook-config" name="Hook Config">
+			<view>bitbucket.config.formContents</view>
 			<directory location="/static/" />
 		</config-form>
 	</repository-hook>
 
-	<param name="atlassian-licensing-enabled">true</param>
+
 	<component-import key="pluginLicenseManager" interface="com.atlassian.upm.api.license.PluginLicenseManager"/>
 
 </atlassian-plugin>
