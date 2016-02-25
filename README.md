@@ -15,6 +15,7 @@ Format of the JSON that is sent to the transformer looks as follow:
 ```
 
 You can read `projectKey` and `repositorySlug` from the repository url:
+
 ```
 localhost:7990/projects/CAT/repos/catrepo/browse
 ```
