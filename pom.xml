@@ -5,15 +5,15 @@
 	<groupId>com.networkedassets.atlassian.plugins</groupId>
 	<artifactId>bitbucket-postReceive-hook-plugin</artifactId>
 	<!-- version needs to end with '-SNAPSHOT' and changes every mvn release:prepare -->
-	<version>1.1-SNAPSHOT</version>
+	<version>0.1.1</version>
 
 	<organization>
-		<name>NetworkedAssets GmbH</name>
+		<name>NetworkedAssets Sp. z o.o.</name>
 		<url>http://networkedassets.com</url>
 	</organization>
 
-	<name>Bitbucket Post-Receive Hook Plugin</name>
-	<description>Repository hook plugin for notifying an external URL of changes to a repository.</description>
+	<name>Event Listener for Bitbucket Server</name>
+	<description>Sends notification to the provided url whenever users pushes to the repository.</description>
 	<packaging>atlassian-plugin</packaging>
 
 	<scm>
