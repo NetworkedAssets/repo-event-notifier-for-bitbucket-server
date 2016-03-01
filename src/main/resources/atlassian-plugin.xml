@@ -14,7 +14,8 @@
 	<component key="com.networkedassets.atlassian.plugins.HookRequestSender" class="com.networkedassets.atlassian.plugins.HookRequestSender" />
 
    <resource type="i18n" name="i18n" location="i18n/bitbucket-hooks"/> 
-	<repository-hook key="postReceiveHookListener"  class="com.networkedassets.atlassian.plugins.HookPostReceiveListener" name="Endpoint Push Notification">
+	<repository-hook key="postReceiveHookListener"  class="com.networkedassets.atlassian.plugins.HookPostReceiveListener" name="Event Listener for Bitbucket Server">
+	    <icon>/images/pluginLogo.png</icon>
 		<description>Sends a notice to the configured endpoint whenever someone pushes to the repository</description>
 		<config-form key="postReceiveHook-config" name="Hook Config">
 			<view>bitbucket.config.formContents</view>
