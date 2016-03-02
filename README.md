@@ -1,12 +1,12 @@
-# Bitbucket Hook Post Receive Plugin
+# Event Listener for Bitbucket Server
 
 * Plugin needs to be installed as Bitbucket add-on
-* It is used to send notifications to transformer that some changes in the repository's code were made
+* It is used to send notifications indicating that some changes in the repository's code were made
 
-Format of the JSON that is sent to the transformer looks as follow:
+Format of the JSON that is sent looks as follow:
 
 ```json
-{  
+{
    "sourceUrl":"refs/heads/master",
    "projectKey":"FOOKEY",
    "repositorySlug":"foo-plugin",
