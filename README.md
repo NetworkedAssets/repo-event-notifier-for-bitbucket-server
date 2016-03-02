@@ -7,10 +7,10 @@ Format of the JSON that is sent looks as follow:
 
 ```json
 {
-   "sourceUrl":"refs/heads/master",
+   "sourceUrl":"http://url.tobitbucket.com:port",
    "projectKey":"FOOKEY",
    "repositorySlug":"foo-plugin",
-   "branchId":"http://url.tobitbucket.com:port"
+   "branchId":"refs/heads/master"
 }
 ```
 
