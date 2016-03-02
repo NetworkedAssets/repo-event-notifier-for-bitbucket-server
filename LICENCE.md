@@ -179,7 +179,7 @@ recommend that a file or class name and description of purpose be included on
 the same “printed page” as the copyright notice for easier identification within
 third-party archives.
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright (c) 2016 NetworkedAssets Sp. z o.o. (http://networkedassets.com)
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -193,14 +193,8 @@ third-party archives.
     See the License for the specific language governing permissions and
     limitations under the License.
 	
+The plugin uses external libraries, which have their own licenses:
 	
-The Transformer uses external libraries, which have their own licenses:
-	
-- [Jersey](https://jersey.java.net/license.html)  [CDDL-Version 1.1, GPL Version 2]
-- [Guava Libraries] https://code.google.com/p/guava-libraries/ [APACHE-2]
 - [JUnit] http://junit.org/license.html [EPL - v 1.0]
-- [Hamcrest] https://github.com/hamcrest/JavaHamcrest/blob/master/LICENSE.txt [BSD]
-
-The Transformer includes code from the following projects, which have their own licenses:
-- [XML-DOCLET](https://github.com/MarkusBernhardt/xml-doclet/blob/master/LICENSE)  [APACHE-2]. 
-
+- [Unirest] https://github.com/Mashape/unirest-java/blob/master/LICENSE [BSD]
+- [HttpComponents] https://hc.apache.org/httpcomponents-core-ga/license.html [APACHE-2]
