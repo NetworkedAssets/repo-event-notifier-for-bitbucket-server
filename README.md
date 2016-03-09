@@ -1,4 +1,4 @@
-# Event Listener for Bitbucket Server
+# Repo Event Notifier for Bitbucket Server
 
 * Plugin needs to be installed as Bitbucket add-on
 * It is used to send notifications indicating that some changes in the repository's code were made

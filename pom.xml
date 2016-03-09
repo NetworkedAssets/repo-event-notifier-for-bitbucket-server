@@ -12,7 +12,7 @@
 		<url>http://networkedassets.com</url>
 	</organization>
 
-	<name>Event Listener for Bitbucket Server</name>
+	<name>Repo Event Notifier for Bitbucket Server</name>
 	<description>Sends notification to the provided url whenever users pushes to the repository.</description>
 	<packaging>atlassian-plugin</packaging>
 
