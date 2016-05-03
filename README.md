@@ -1,16 +1,16 @@
-# Bitbucket Hook Post Receive Plugin
+# Repo Event Notifier for Bitbucket Server
 
 * Plugin needs to be installed as Bitbucket add-on
-* It is used to send notifications to transformer that some changes in the repository's code were made
+* It is used to send notifications indicating that some changes in the repository's code were made
 
-Format of the JSON that is sent to the transformer looks as follow:
+Format of the JSON that is sent looks as follow:
 
 ```json
-{  
-   "sourceUrl":"refs/heads/master",
+{
+   "sourceUrl":"http://url.tobitbucket.com:port",
    "projectKey":"FOOKEY",
    "repositorySlug":"foo-plugin",
-   "branchId":"http://url.tobitbucket.com:port"
+   "branchId":"refs/heads/master"
 }
 ```
 
