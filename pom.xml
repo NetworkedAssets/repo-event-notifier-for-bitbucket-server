@@ -7,7 +7,7 @@
 	<groupId>com.networkedassets.atlassian.plugins</groupId>
 	<artifactId>repo-event-notifier-for-bitbucket-server</artifactId>
 
-	<version>0.1.2</version>
+	<version>0.1.3</version>
 
 	<organization>
 		<name>NetworkedAssets Sp. z o.o.</name>
@@ -157,7 +157,7 @@
 	</build>
 
 	<properties>
-		<bitbucket.version>4.0.0</bitbucket.version>
+		<bitbucket.version>4.10.0</bitbucket.version>
 		<bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
 		<amps.version>6.1.0</amps.version>
 		<plugin.testrunner.version>1.2.3</plugin.testrunner.version>
